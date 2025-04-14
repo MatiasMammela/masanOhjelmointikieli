@@ -1,0 +1,4 @@
+int variable1 = 69 + 12 / y + 4;
+fn int main(int parameter1, int parameter2){
+   int variable2 = 65 * 1 * y + 4; 
+}
