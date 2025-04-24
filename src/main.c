@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "lexer.h"
 #include "parser.h"
+#include "ir.h"
 int main(void)
 {
     FILE *file_ptr;
-    file_ptr = fopen("resources/code.txt", "r");
+    file_ptr = fopen("resources/code2.txt", "r");
     if (!file_ptr)
     {
         printf("Error opening a file in main");
@@ -32,6 +33,6 @@ int main(void)
     print_tokens();
 
     parse();
-
+    ir_init();
     return 0;
 }

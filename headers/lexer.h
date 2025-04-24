@@ -7,8 +7,10 @@
 #include <pcre2.h>
 typedef struct token_t token_t;
 
-typedef enum {
-    TOKEN_FUNCTION,   // 0 works
+typedef enum
+{
+    TOKEN_FUNCTION, // 0 works
+    TOKEN_RETURN,
     TOKEN_NUMBER,     // 1 works
     TOKEN_IDENTIFIER, // 3 works
     TOKEN_LPAREN,
@@ -26,19 +28,22 @@ typedef enum {
     TOKEN_TYPE,
 } token_type_t;
 
-struct token_t {
+struct token_t
+{
     token_type_t type;
     const char *value;
     token_t *next;
 };
 
-typedef struct {
+typedef struct
+{
     const char *regex;
     token_type_t type;
 } pattern_t;
 
 static pattern_t patterns[] = {
     {"^fn\\b", TOKEN_FUNCTION},
+    {"^return\\b", TOKEN_RETURN},
     {"^\\d+", TOKEN_NUMBER},
     {"^[a-zA-Z_][a-zA-Z0-9_]*", TOKEN_IDENTIFIER},
     {"^\\(", TOKEN_LPAREN},
@@ -66,7 +71,6 @@ token_t *advance_assert(const char c);
 token_t *advance_type();
 token_t *advance_assert_token_type(token_type_t t);
 token_t *advance_operation();
-
 
 // Dont move / check current / return current
 token_t *peek_token();

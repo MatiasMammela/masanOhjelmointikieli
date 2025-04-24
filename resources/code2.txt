@@ -1,0 +1,13 @@
+int toplvl3;
+int toplvl = -1;
+int toplvl2 = toplvl - 1;
+fn int main(int x){
+    int filler = 5;
+    int assignment;
+    return toplvl2;
+}
+
+
+fn void jee(int x){
+    return;
+}

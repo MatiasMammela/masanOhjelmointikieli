@@ -1,12 +1,12 @@
 #include "lexer.h"
 #include "types.h"
-#include "operations.h"
 #include <stdio.h>
 const char *input;
 size_t pos = 0;
 token_t *tokens;
 static token_t *head = NULL;
 static token_t *tail = NULL;
+
 void add_token(token_type_t type, const char *value)
 {
 
@@ -107,6 +107,7 @@ void skip_chars()
 }
 void lexer_parse(const char *content)
 {
+
     input = content;
     pos = 0;
     while (pos < strlen(input))
@@ -173,6 +174,14 @@ token_t *peek_token()
     if (head != NULL)
     {
         return head;
+    }
+    return NULL;
+}
+token_t *peek_next()
+{
+    if (head->next != NULL)
+    {
+        return head->next;
     }
     return NULL;
 }

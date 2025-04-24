@@ -5,5 +5,6 @@ const char *types[] = {
     "int",
     "double",
     "float",
-    "string"};
+    "string",
+    "void"};
 #endif
