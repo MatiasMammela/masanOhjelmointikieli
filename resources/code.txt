@@ -1,0 +1,13 @@
+fn i32 function(i32 param){
+    return param - (10 + 2)*2;
+}
+
+
+i32 global = 1;
+fn i32 main(){
+    i32 undefined;
+    i32 variable = function(19);
+    undefined = global + variable;
+    return undefined;
+}
+
